@@ -4,17 +4,23 @@ import time
 # Set the page config to wide mode for better layout
 st.set_page_config(layout="wide")
 
-# Title for your app
+# Title for app
 st.title('5 Minute Timer with Sequential Messages')
-
+st.write('This app will display a timer counting down from 5 minutes. With two minutes left it will say to "Add Marker in Omnia", at one minute left it will say to "Get RPE and Awkwardness", and at 30 seconds left it will say to "Start Recording in MotionMonitor"')
+st.write('This is meant as a guide for data collection for the CADENCE Study.')
+st.write('---')
 
 # Create a start button
 if st.button('Start Timer'):
 
     # Create an empty placeholder for the timer
     timer_placeholder = st.empty()
-    # Create an empty placeholder for messages
-    message_placeholder = st.empty()
+    # Create an empty placeholder for Omnia
+    omnia_message_placeholder = st.empty()
+    # Create an empty placeholder for RPE
+    rpe_message_placeholder = st.empty()
+    # Create an empty placeholder for MM
+    mm_message_placeholder = st.empty()
 
     # Set the countdown time (5 minutes)
     countdown = 300  # 300 seconds for 5 minutes
@@ -26,48 +32,24 @@ if st.button('Start Timer'):
         timer = '{:02d}:{:02d}'.format(mins, secs)
 
         # Update the timer placeholder with the current timer value
-        timer_placeholder.markdown(f"### Time Remaining: {timer}")
+        timer_placeholder.markdown(f"# Time Remaining: {timer}")
 
         # When there are 2 minutes left, display "Add Marker in Omnia"
         if i == 120:  # 120 seconds is equal to 2 minutes
-            message_placeholder.markdown("### Add Marker in Omnia")
-        if i == 115:
-            message_placeholder.empty()
+            omnia_message_placeholder.markdown("## -Add Marker in Omnia")
+
         # When there is 1 minute left, display "Get RPE & Awkwardness"
         elif i == 60:  # 60 seconds is equal to 1 minute
-            message_placeholder.markdown("### Get RPE & Awkwardness")
+            rpe_message_placeholder.markdown("## --Get RPE & Awkwardness")
 
         # When there are 30 seconds left, display "Start Recording in Motion Monitor"
         elif i == 30:  # 30 seconds
-            message_placeholder.markdown("### Start Recording in Motion Monitor")
+            mm_message_placeholder.markdown("## ---Start Recording in Motion Monitor")
 
         # Wait for 1 second before updating the timer
         time.sleep(1)
 
     # Once the countdown is over, display the message
-    timer_placeholder.markdown("### Timer Ended!")
-    # Clear the special message
-    message_placeholder.empty()
-
-
-import streamlit as st
-
-# Title for your app
-st.title('Streamlit App with Beep Sound')
-
-# Add a button to trigger the beep
-if st.button('Click me to beep'):
-    # Embed an audio file
-    audio_file = 'beep-08b.mp3'  # Replace with the path to your audio file
-
-    # Create the HTML to embed the audio
-    audio_html = f"""
-    <audio autoplay>
-    <source src="{audio_file}" type="audio/mpeg">
-    Your browser does not support the audio element.
-    </audio>
-    """
-
-    # Display the audio
-    st.markdown(audio_html, unsafe_allow_html=True)
-
+    timer_placeholder.markdown("### Timer Ended! On to the next trial!")
+st.write('---')
+st.write('Written by Dante Goss')
