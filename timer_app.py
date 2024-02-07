@@ -52,4 +52,13 @@ if st.button('Start Timer'):
     # Once the countdown is over, display the message
     timer_placeholder.markdown("### Timer Ended! On to the next trial!")
 st.write('---')
+st.write('Calculator')
+numval = st.number_input("Input a Number",min_val = 0)
+ninety = round((numval*.9))
+onefive = round((numval*1.05))
+oneone = round(numval*1.1)
+
+col1,col2,col3,col4 = st.columns(4)
+col1.metric('Ninety Percent',ninety.as.str())
+st.write('---')
 st.write('Written by Dante Goss')
