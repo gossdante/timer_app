@@ -56,13 +56,13 @@ st.write('Calculator')
 numval = st.number_input("Input a Number")
 ninety = round((numval*.9))
 onefive = round((numval*1.05))
-oneone = round(numval*1.1)
+oneone = round((numval*1.1))
 
 col1,col2,col3,col4 = st.columns(4)
 col1.metric('90%',str(ninety))
-col2.metric('100%',str(numval.str))
-col3.metric('105%',str(onefive.str))
-col4.metric('110%',str(oneone.str))
+col2.metric('100%',str(numval))
+col3.metric('105%',str(onefive))
+col4.metric('110%',str(oneone))
 
 
 st.write('---')
