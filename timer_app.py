@@ -59,6 +59,11 @@ onefive = round((numval*1.05))
 oneone = round(numval*1.1)
 
 col1,col2,col3,col4 = st.columns(4)
-col1.metric('Ninety Percent',ninety.as.str())
+col1.metric('90%',ninety.str())
+col2.metric('100%',numval.str())
+col3.metric('105%',onefive.str())
+col4.metric('110%',oneone.str())
+
+
 st.write('---')
 st.write('Written by Dante Goss')
