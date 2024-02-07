@@ -52,18 +52,28 @@ if st.button('Start Timer'):
     # Once the countdown is over, display the message
     timer_placeholder.markdown("### Timer Ended! On to the next trial!")
 st.write('---')
-st.write('Calculator')
-numval = st.number_input("Input a Number")
-if numval >1:
-    ninety = round((numval*.9))
-    onefive = round((numval*1.05))
-    oneone = round((numval*1.1))
+st.write('Calculators')
+gs = st.number_input("Input the preferred gait speed value")
+if gs >0:
+    below = round(gs*.9)
+    above = round(gs*1.1)
+    cooldown = round(gs*.6)
+    column1,column2,column3,column4 = st.columns(4)
+    column1.metric('10% Below PGS',str(below))
+    column2.metric('Preferred Gait Speed (PGS)',str(gs))
+    column3.metric('10% Above PGS',str(above))
+    column4.metric('60% Of PGS (Easy Walking)',str(cooldown))
 
-    col1,col2,col3,col4 = st.columns(4)
-    col1.metric('90%',str(ninety))
-    col2.metric('100%',str(numval))
-    col3.metric('105%',str(onefive))
-    col4.metric('110%',str(oneone))
+numval = st.number_input("Input the number of steps taken in 15 seconds")
+if numval >1:
+    sixty = round((numval*.6*4))
+    onefive = round((numval*1.05*4))
+    oneone = round((numval*1.1*4))
+
+    col2,col3,col4 = st.columns(3)
+    col2.metric('Step Rate: 100%',str(numval))
+    col3.metric('Step Rate: 105%',str(onefive))
+    col4.metric('Step Rate: 110%',str(oneone))
 
 
 st.write('---')
