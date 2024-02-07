@@ -53,7 +53,7 @@ if st.button('Start Timer'):
     timer_placeholder.markdown("### Timer Ended! On to the next trial!")
 st.write('---')
 st.write('Calculator')
-numval = st.number_input("Input a Number",min_val = 0)
+numval = st.number_input("Input a Number")
 ninety = round((numval*.9))
 onefive = round((numval*1.05))
 oneone = round(numval*1.1)
