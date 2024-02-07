@@ -54,15 +54,16 @@ if st.button('Start Timer'):
 st.write('---')
 st.write('Calculator')
 numval = st.number_input("Input a Number")
-ninety = round((numval*.9))
-onefive = round((numval*1.05))
-oneone = round((numval*1.1))
+if numval >1:
+    ninety = round((numval*.9))
+    onefive = round((numval*1.05))
+    oneone = round((numval*1.1))
 
-col1,col2,col3,col4 = st.columns(4)
-col1.metric('90%',str(ninety))
-col2.metric('100%',str(numval))
-col3.metric('105%',str(onefive))
-col4.metric('110%',str(oneone))
+    col1,col2,col3,col4 = st.columns(4)
+    col1.metric('90%',str(ninety))
+    col2.metric('100%',str(numval))
+    col3.metric('105%',str(onefive))
+    col4.metric('110%',str(oneone))
 
 
 st.write('---')
