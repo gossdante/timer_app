@@ -66,7 +66,7 @@ if st.button('Start Timer'):
 
         # When there is 1 minute left, display "Get RPE & Awkwardness"
         elif i == 60:  # 60 seconds is equal to 1 minute
-            rpe_message_placeholder.markdown("## --Get RPE & Awkwardness")
+            rpe_message_placeholder.markdown("## --Get Step Rate")
 
         # When there are 30 seconds left, display "Start Recording in Motion Monitor"
         elif i == 30:  # 30 seconds
